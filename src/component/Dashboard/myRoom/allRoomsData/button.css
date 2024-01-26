@@ -1,0 +1,36 @@
+.btn
+{
+    color: white;
+    background-color: #e84949;
+    /* background-color: linear-gradient(102.57deg #DC0916 0%, #F41FD6 100%); */
+    padding: 0.8rem 2.3rem;
+    z-index: 5;
+    font-size:18px ;
+    /* padding: 0.3rem 0.8rem; */
+    box-shadow: 5px 5px 7px 0px #0000003f;
+    position: relative;
+    outline: none;
+    border: none;
+    /* width: 50px; */
+   border-radius: 10px 0px;
+    
+}
+.btn::before{
+    content: "";
+    border-radius: 10px 0px;
+    background-color: rgba(0,0,0,0.5);
+    
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    transform: scaleX(0); 
+    transform-origin: center;
+    z-index: -1;
+    cursor: pointer;
+    transition: all 1s;
+}
+.btn:hover::before{
+    transform: scaleX(1);
+} 

@@ -1,0 +1,58 @@
+.close_filter_Bar{
+    
+      position: absolute;
+      
+      right: -100%;
+      top:3.2rem;
+      width: 0vw;
+      /* transition-property: all;
+      transition-duration:5s;
+      transition-timing-function: linear; */
+}
+
+
+
+.Open_Filter_Bar{
+   
+       position: absolute;
+       padding: 0.7rem;
+       right: 0;
+       top:4rem;
+       bottom: 0;
+       /* display: block; */
+       z-index: 11;
+       width: 300px;
+       height: 80vh;
+       border: 1px solid rgba(18, 18, 18, 0.1);
+       background-color: rgba(234, 228, 228, 0.818);
+       border-radius: 5px;
+       overflow: hidden;
+       box-shadow: 5px 7px 6px 0px #0808083f;
+    
+       transition: all 0.2s;
+       /* transition:width 5s linear; */
+}
+
+/*botton Css*/
+.filter-button{
+      position: relative;
+      overflow: hidden;
+      
+      }
+      .filter-button::after{
+          content: "";
+          display: block;
+          height: 4px;
+          width: 100%;
+          background-color: blue;
+          transform: scaleX(0);
+          transition: transform 0.3s ease;
+      }
+      .filter-button:hover::after{
+          transform: scaleX(1);
+      }
+
+      .shadow{
+            box-shadow: 5px 7px 6px 0px #0808083f;
+      }
+

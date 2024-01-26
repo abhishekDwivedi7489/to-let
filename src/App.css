@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body{
+    /*  overflow-x: hidden;*/
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      /* background-color: #d1c1a5; */
+  }
+
+/*form css*/
+.login-Shadow{
+  box-shadow:0px 0px 10px #000814;
+
+ 
+}
+.input-group{
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+
+}
+.input-group .input-box{
+  color: #000814;
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+  outline: 2px solid #000814;
+  box-shadow: 0px 0px 5px #000814;
+  background-color: transparent;
+  transition: outline-color 250ms;
+}
+
+.input-group .input-box:focus{
+  outline-color: #3c50eb;
+  box-shadow: 0px 0px 10px #000814;
+ 
+}
+ .input-lable{
+  font-weight: 700;
+ }
+
+.input-group .input-box:focus ~ .input-lable
+ {
+   color: #3c50eb;
+ } 
+ .password-eye{
+  position: absolute;
+  right: 1rem;
+  top: 58%;
+ }
+ .pulse-button{
+  /* border: 2px solid #E7C009; */
+  border-radius: 8px;
+  color: white;
+  font-weight: 900;
+  font-size: large;
+  outline: none;
+  margin-top: 0.5rem;
+  background-color: #08104a;
+ }
+ .pulse-button:hover{
+  animation: pulse 1.8s infinite;
+}
+@keyframes pulse {
+  0%{
+      box-shadow: 0 0 0 0 #6366f1;
+  }
+  65%{
+      box-shadow: 0 0 0 17px transparent;  
+  }
+  100%{
+      box-shadow: 0 0 0 0 transparent;  
+  }
+}
+
+/* loader */
+/* .loader1{
+  width: 16px;
+  height: 16px;
+  border-top: 3px solid white;
+  border-right: 3px solid white;
+  border-radius: 50%;
+  animation: rotater 0.5s linear  infinite ;
+}
+@keyframes rotater {
+  to{
+      transform: rotate(360deg);
+  }
+} */
+/* end CSS */
+.link-hover-Effect{
+  transition: all;
+  transition-duration: 0.1s;
+  transition-timing-function: linear;
+}
+.link-hover-Effect:hover{
+    transform: scale(1.1);
+}
+.link-hover-Color-Effect{
+  transition: all;
+  transition-duration: 0.1s;
+  transition-timing-function: linear;
+}
+.link-hover-Color-Effect:hover{
+  background-color: #3D2A01;
+  border-left: 0.1rem solid #FFD60A;
+}
+
+/*owner box shadow*/
+.home_box_Shadow_Owner{
+  overflow: hidden;
+  border: 1px solid rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35);
+  border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+/*home page effect image*/
+.home_image_effect{
+   transition: all 0.6s;
+}
+.home_image_effect:hover{
+  transform: scaleX(1.1);
+  z-index: 10;
+}
+
+/* box shadow in room data*/
+.room_data_box_shadow{
+  overflow: hidden;
+  box-shadow: 5px 5px 4px 0px #0808083f;
+ 
+  
+}
+.room_data_box_shadow_width{
+  overflow: hidden;
+  box-shadow: 5px 7px 6px 0px #0808083f;
+  width: 300px;
+  transition: all 0.2s;
+}
+
+.room_data_box_shadow_width:hover{
+  box-shadow: 7px 10px 10px 0px #0808083f;
+  transform: scale(1.03);
+}
+@media  (max-width : 500px){
+  .room_data_box_shadow_width{
+       width: 100%;
+  }
+  
+}
+
+/*All move Animation*/
+.stay_Div{
+  width: 100%;
+  height: 4px;
+  background-color: #07ca83;
+  border-radius: 8px;
+  margin-top: 3px;
+  position: relative;
+}
+.move_Div{
+    width: 5%;
+    height: 4px;
+    background-color: white;
+    animation: move 6s linear infinite;
+    border-radius: 5px;
+}
+@keyframes move {
+
+  0%{
+      transform: translateX(5px);  
+  }
+  50%{
+      transform: translateX(95px);
+  }
+  100%{
+      transform: translateX(5px);
+  }
+ 
+}
+
+.textShadow_Bright{
+  text-shadow: 0 0 20px #00fffb, 0 0 40px #0081bc;
+}
+
