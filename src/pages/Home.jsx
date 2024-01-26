@@ -18,6 +18,7 @@ const Home = () => {
         async function categoryPageDetails(){
           setLoading(true);
           const result = await categoryPagehome()
+          console.log(result)
           setLoading(false);
           if(result){
             dispatch(setCategoryRoom(result))

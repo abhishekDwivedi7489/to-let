@@ -9,11 +9,14 @@ const { GET_CITY_WISE_DATA,GET_HOMEID_DATA, GET_ROOM_DATA,GET_AREA_WISE_DATA } =
 export async function categoryPagehome(){
     try {
          let result ;
+       
          const response = await apiConnector("GET",CATEGORY_DATA_API, null) ;
          if(!response.data.success){
             throw new Error(response.data.message);
          }
-         return result = response.data.data
+          result = response.data.data
+         
+          return result;
     } catch (error) {
         console.log("CATEGORY ERROR API",error); 
         toast.error(error.response.data.message) ;  
