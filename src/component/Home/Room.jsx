@@ -34,7 +34,7 @@ const Room = () => {
 
         getRoom()
     },[])
-    let imgValue;
+   
    const decrementCount = (length) => {
           if(count === 0)
           {
@@ -42,9 +42,7 @@ const Room = () => {
           }
           else{
             
-            imgValue = count;
-            imgValue -= imgValue 
-            setCount(imgValue);
+            setCount((prev) => prev-1);
           }
           
    }
@@ -52,9 +50,7 @@ const Room = () => {
    const incrementCount = (length) => {     
         if(count < length -1) 
         {
-           imgValue = count;
-           imgValue =imgValue + 1;
-          setCount(imgValue);
+          setCount((prev) => prev + 1);
           
         }
         else{

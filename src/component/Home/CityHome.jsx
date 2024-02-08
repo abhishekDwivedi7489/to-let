@@ -9,6 +9,7 @@ const CityHome = () => {
     const {cityName} = useParams();
     const [loading, setLoading] = useState(false);
     const [homeData, setHomeData] = useState(null);
+    const [openCate, setOpenCate] = useState(false);
    
    
     const navigate = useNavigate()
@@ -16,6 +17,7 @@ const CityHome = () => {
     const [open, setOpen] = useState(false)
     const [formData, setFormData] = useState({area :""})
     let [homeDataFil, setHomeDataFil] = useState(null);
+    console.log("home",homeDataFil);
     //
     useEffect(() =>{
               async function cityWiseSerch(){
@@ -51,9 +53,11 @@ const CityHome = () => {
 
                function clickHandler(data){    
                   setFormData({area : data});
+                  setOpenCate(false);
                } 
 
                const changeHandler = (e) => {
+                  // setOpenCate(true);
                  const d = e.target.value;
                   const d1 = d.toUpperCase();
                  const data = ( homeData.filter((h) => h.area.toUpperCase().includes(d1)));
@@ -122,6 +126,7 @@ if(loading){
                  X
               </p>
              </section>
+             {/* Area Section */}
               <section>
               <form onSubmit={formSubmitHadler} className='flex justify-between'>
                     
@@ -133,6 +138,7 @@ if(loading){
                         required
                         value={formData.area}
                         onChange={changeHandler}
+                        onClick={() => setOpenCate(true)}
                         placeholder='Area Name'
                         className='text-black text-sm p-1 rounded-sm outline-none font-semibold'
                      />
@@ -142,12 +148,13 @@ if(loading){
                    
                      
                </form>
-               <section className='flex flex-col gap-2  bg-richblack-100 w-[60%] overflow-auto p-3 h-[30%] mt-1 rounded-sm shadow'>
+               { openCate &&
+               <section className='flex flex-col gap-1 bg-richblack-100 w-[60%] overflow-auto p-1 h-[30%] mt-1 rounded-sm shadow'>
                    {
-                     homeDataFil?.length > 0 && (
+                   homeDataFil?.length > 0 && (
                        homeDataFil?.map((home) => (
                          <section key={home._id} onClick={() => clickHandler(home.area)} 
-                         className='cursor-pointer text-sm font-semibold'>
+                         className='cursor-pointer text-sm font-semibold bg-richblack-200 p-1 rounded-lg'>
                             {home.area}
                          </section>
                        ))
@@ -155,8 +162,9 @@ if(loading){
                      
                    }  
                </section>
+               }
               </section>
-
+             
 
               </section>
          
