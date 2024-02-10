@@ -11,6 +11,7 @@ export async function categoryPagehome(){
          let result ;
        
          const response = await apiConnector("GET",CATEGORY_DATA_API, null) ;
+         
          if(!response.data.success){
             throw new Error(response.data.message);
          }

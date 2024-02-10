@@ -56,11 +56,11 @@ const RoomDetails = ({ homeData, setHomeData}) => {
     <section className='flex flex-wrap gap-8 mx-auto'>
         {
             homeData?.map((homeData) =>(
-                <div key={homeData._id} className='home_box_Shadow_Owner relative'>
+                <div key={homeData._id} className='room_data_box_shadow relative -z-30'>
                     <button className='absolute left-6 top-3 text-base text-caribbeangreen-800 border-[1px] hover:rounded-tl-lg hover:rounded-br-lg px-2 ' 
                             onClick={() => navigate(`/dashboard/All-Room-Data/${homeData._id}`)}>Open
                     </button>
-                    <div className=' w-[100%] sm:w-[400px] overflow-hidden rounded '>
+                    <div className=' w-[100%]  overflow-hidden rounded '>
                         <img src={homeData.thumbnail} alt='Not Found' className='rounded w-full h-[150px] transition-all duration-300 '/>
                         <div className='flex items-center justify-between p-2 sm:p-4'>
                            <div className='font-inter font-semibold'>

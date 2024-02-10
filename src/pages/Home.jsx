@@ -18,7 +18,7 @@ const Home = () => {
         async function categoryPageDetails(){
           setLoading(true);
           const result = await categoryPagehome()
-          console.log(result)
+         
           setLoading(false);
           if(result){
             dispatch(setCategoryRoom(result))
@@ -38,7 +38,7 @@ const Home = () => {
 
   else{
   return (
-    <main className='bg-[#f6f4f4e3] pt-10'>
+    <main className='bg-[#f6f4f4e3] pt-10 h-[100vh]'>
         {
           categoryRoom?.map((category, i) =>(
             <section key={i}  className='w-[100vw]  md:w-[11/12] mx-auto '>

@@ -3,19 +3,8 @@
     position: absolute;
     top: 50%;
     left : 50%;
-    /* width: 45px;
-    height: 45px;
-    border: 6px solid black;
-    border-top: 6px solid blue;
-    border-right: 6px solid blueviolet;
-    border-radius: 50%;
-    animation: rotater 0.5s linear  infinite ; */
+    transform: translate(-50% , -50%);
 }
-/* @keyframes rotater {
-    to{
-        transform: rotate(360deg);
-    }
-} */
 .produ{
     display: flex;
     justify-content: center;

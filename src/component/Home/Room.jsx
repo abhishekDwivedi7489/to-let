@@ -74,11 +74,11 @@ const Room = () => {
     
        {
         room && (
-          <section className='100vh max-w-[1035px] w-[11/12] mx-auto mt-10 '>
+          <section className='h-[100vh] max-w-[1035px] w-[96%] mx-auto mt-10 '>
           <marquee className ="text-pink-200 ">NOTE :-  You need to contact the owner for booking</marquee>
           <section className='flex flex-wrap justify-between'>
           <div className='flex flex-col gap-y-6'>
-             <div className='relative border w-[100%] md:w-[500px] h-[300px] rounded overflow-hidden p-3 bg-richblack-900 room_data_box_shadow '>
+             <div className='relative border w-[100%] md:w-[500px] h-[250px] rounded overflow-hidden p-3 bg-richblack-900 room_data_box_shadow '>
                 <img src={room.images[count].image} alt='Image not found' className='h-full w-[85%] md:w-[410px] mx-auto'/>
                 <span className='absolute bottom-2 right-0 text-xl cursor-pointer text-richblack-25'>{count +1}/{room.images.length}</span>
                 <span onClick={() =>decrementCount(room.images.length)} className='absolute top-[40%] left-0 font-semibold text-4xl cursor-pointer text-richblack-25'>

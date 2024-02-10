@@ -1,10 +1,7 @@
-import { useEffect, useRef, useState } from "react"
-import { useDropzone } from "react-dropzone"
-import { FiUploadCloud } from "react-icons/fi"
-import { useSelector } from "react-redux"
 
-// import "video-react/dist/video-react.css"
-// import { Player } from "video-react"
+import { useEffect, useRef, useState } from "react";
+import { useDropzone } from "react-dropzone";
+import { FiUploadCloud } from "react-icons/fi";
 
 export default function Upload({
   name,
@@ -16,50 +13,47 @@ export default function Upload({
   editData = null,
 }) {
   
-  const [selectedFile, setSelectedFile] = useState(null)
+  const [selectedFile, setSelectedFile] = useState(null);
   const [previewSource, setPreviewSource] = useState(
     viewData ? viewData : editData ? editData : ""
-  )
+  );
  
-  const inputRef = useRef(null)
+  const inputRef = useRef(null);
 
   const onDrop = (acceptedFiles) => {
-    const file = acceptedFiles[0]
+    const file = acceptedFiles[0];
     if (file) {
-      previewFile(file)
-      setSelectedFile(file)
+      previewFile(file);
+      setSelectedFile(file);
     }
-  }
+  };
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    accept:  { "image/*": [".jpeg", ".jpg", ".png"] },
-    
+    accept: "image/jpeg, image/jpg, image/png",
+    noCookies: true, // Specify noCookies option to avoid relying on third-party cookies
     onDrop,
-  })
+  });
 
   const previewFile = (file) => {
-    // console.log(file)
-    const reader = new FileReader()
-    reader.readAsDataURL(file)
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
     reader.onloadend = () => {
-      setPreviewSource(reader.result)
-    }
-  }
+      setPreviewSource(reader.result);
+    };
+  };
 
   useEffect(() => {
-    register(name, { required: true })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [register])
+    register(name, { required: true });
+  }, [register]);
 
   useEffect(() => {
-    setValue(name, selectedFile)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedFile])
+    setValue(name, selectedFile);
+  }, [selectedFile]);
 
   return (
     <div className="flex flex-col space-y-2">
       <label className="text-sm text-richblack-5" htmlFor={name}>
-      {lable} {!viewData && <sup className="text-pink-200">*</sup>}
+        {lable} {!viewData && <sup className="text-pink-200">*</sup>}
       </label>
       <div
         className={`${
@@ -79,9 +73,9 @@ export default function Upload({
               <button
                 type="button"
                 onClick={() => {
-                  setPreviewSource("")
-                  setSelectedFile(null)
-                  setValue(name, null)
+                  setPreviewSource("");
+                  setSelectedFile(null);
+                  setValue(name, null);
                 }}
                 className="mt-3 text-richblack-400 underline"
               >
@@ -119,5 +113,5 @@ export default function Upload({
         </span>
       )}
     </div>
-  )
+  );
 }
