@@ -35,6 +35,19 @@ const Home = () => {
   if(loading){
     return <Loader/>
   }
+  if(categoryRoom === null)
+  {
+     <section className=' h-[100vh] flex flex-col gap-y-7 items-center justify-center 
+                                   overflow-hidden absolute top-0 bottom-0 left-0 right-0 bg-richblack-5'>
+              <img 
+                src={noImage}
+                alt='No Connection Image'
+                
+              />
+              <p className='font-edu font-semibold text-2xl'>Check Your Internet Connection</p>
+             
+    </section>
+  }
 
   else{
   return (
@@ -95,18 +108,7 @@ const Home = () => {
           ))
           
         }
-      {
-        categoryRoom === null && <section className=' h-[100vh] flex flex-col gap-y-7 items-center justify-center 
-                                       overflow-hidden absolute top-0 bottom-0 left-0 right-0 bg-richblack-5'>
-                  <img 
-                    src={noImage}
-                    alt='No Connection Image'
-                    
-                  />
-                  <p className='font-edu font-semibold text-2xl'>Check Your Internet Connection</p>
-                 
-        </section>
-      }
+      
     </main>
   )
 }

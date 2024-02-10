@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-
+const fs = require('fs');
 const database =require("./config/database");
 const {cloudinaryConnect} = require("./config/cloudinary")
 const cookieParser = require("cookie-parser");
@@ -26,6 +26,19 @@ app.use(
     })
     //https://to-let.vercel.app/ origin:"http://localhost:3000/",
 )
+
+app.use((req, res, next) => {
+    const tempDir = "/temp";
+
+    // Check if the directory exists
+    if (!fs.existsSync(tempDir)) {
+        // If the directory doesn't exist, create it
+        fs.mkdirSync(tempDir);
+    }
+
+    // Move to the next middleware
+    next();
+});
 
 app.use(
     fileUpload({
