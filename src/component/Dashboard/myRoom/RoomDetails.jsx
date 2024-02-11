@@ -56,7 +56,7 @@ console.log("first",homeData)
     <section className='flex flex-wrap gap-8 mx-auto'>
         {
             homeData?.map((homeData) =>(
-                <div key={homeData._id} className='room_data_box_shadow relative -z-30' >
+                <div key={homeData._id} className='room_data_box_shadow relative' >
                 <button className='absolute left-6 top-3 text-base text-caribbeangreen-800 border-[1px] hover:rounded-tl-lg hover:rounded-br-lg px-2 '
                             type='button' 
                             onClick={() => navigate(`/dashboard/All-Room-Data/${homeData._id}`)}>
