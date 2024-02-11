@@ -24,7 +24,7 @@ const Sidebar = () => {
 
   return (
     <section >
-        <div className={`${dashboardLen ? "mobile-Sidebar":"Side-Bar"}`}>
+        <div className={`${dashboardLen ? "mobile-Sidebar":"Side-Bar"} z-50`}>
           
             <div className='inside-sidebar-box'>
                 {

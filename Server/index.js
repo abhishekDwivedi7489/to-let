@@ -21,10 +21,10 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
     cors({
-       
+        origin:"*",
         credentials:true,
     })
-    //https://to-let.vercel.app/ origin:"http://localhost:3000/",
+    
 )
 
 
@@ -32,7 +32,7 @@ app.use(
 app.use(
     fileUpload({
         useTempFiles:true,
-        tempFileDir:"/temp"
+        // tempFileDir:"/temp/"
     })
 )
 // cloudinary connection

@@ -15,7 +15,9 @@ export function updateProfilePicture(formData,token,navigate){
     return async(dispatch) =>{
         const tid = toast.loading("Wait");
          try {
+            console.log("first",formData)
            const response = await apiConnector("PUT",UPADATE_PROFILE_PIC,formData,{Authorization:`Bearer ${token}`}) ;
+           console.log(response);
            if(!response.data.success){
             
             throw new Error(response.data.message)

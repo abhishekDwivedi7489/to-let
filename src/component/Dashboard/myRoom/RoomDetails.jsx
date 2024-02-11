@@ -3,7 +3,7 @@ import { HOUSE_STATUS } from '../../../utils/constant';
 import {AiOutlineClockCircle} from "react-icons/ai"
 import {HiOutlineBadgeCheck} from "react-icons/hi"
 import Confirmationmodal from "../../common/Confirmationmodal"
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {MdEdit} from "react-icons/md"
 import {RiDeleteBinLine} from "react-icons/ri"
 import { deleteHomeDetail, editHomeDetails, getOwnerHomeData } from '../../../services/operation/roomsApi';
@@ -16,7 +16,7 @@ const RoomDetails = ({ homeData, setHomeData}) => {
     // 
     const [confirmationmodal ,setConfirmationModal] = useState(null)
     const {token} = useSelector((state) => state.auth)
-   // const {home} = useSelector((state) => state.home)
+   
     const navigate = useNavigate()
    
     async function clickHandler( homeStatus, homeId){
@@ -51,15 +51,21 @@ const RoomDetails = ({ homeData, setHomeData}) => {
         }
         setConfirmationModal(null)
     }
-
+console.log("first",homeData)
   return (
     <section className='flex flex-wrap gap-8 mx-auto'>
         {
             homeData?.map((homeData) =>(
-                <div key={homeData._id} className='room_data_box_shadow relative -z-30'>
-                    <button className='absolute left-6 top-3 text-base text-caribbeangreen-800 border-[1px] hover:rounded-tl-lg hover:rounded-br-lg px-2 ' 
-                            onClick={() => navigate(`/dashboard/All-Room-Data/${homeData._id}`)}>Open
+                <div key={homeData._id} className='room_data_box_shadow relative -z-30' >
+                <button className='absolute left-6 top-3 text-base text-caribbeangreen-800 border-[1px] hover:rounded-tl-lg hover:rounded-br-lg px-2 '
+                            type='button' 
+                            onClick={() => navigate(`/dashboard/All-Room-Data/${homeData._id}`)}>
+                            <Link to={(`/dashboard/All-Room-Data/${homeData._id}`)}>
+                                Open
+                            </Link>
+                            
                     </button>
+                    
                     <div className=' w-[100%]  overflow-hidden rounded '>
                         <img src={homeData.thumbnail} alt='Not Found' className='rounded w-full h-[150px] transition-all duration-300 '/>
                         <div className='flex items-center justify-between p-2 sm:p-4'>
@@ -78,6 +84,7 @@ const RoomDetails = ({ homeData, setHomeData}) => {
                             <div>
                             <button
                                 //disabled={loading}
+                                type='button'
                                 onClick={()=>navigate(`/dashboard/edit-home/${homeData._id}`) }
                                 title="Edit"
                                 className="px-2 transition-all duration-200 hover:scale-110 hover:text-caribbeangreen-300"
