@@ -42,6 +42,14 @@ export default function Upload({
     };
   };
 
+  const changeHandler = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      previewFile(file);
+      setSelectedFile(file);
+    }
+  }
+
   useEffect(() => {
     register(name, { required: true });
   }, [register]);
@@ -88,10 +96,22 @@ export default function Upload({
             className="flex w-full flex-col items-center p-6"
             {...getRootProps()}
           >
-            <input {...getInputProps()} ref={inputRef} />
-            <div className="grid aspect-square w-14 place-items-center rounded-full bg-pure-greys-800">
-              <FiUploadCloud className="text-2xl text-yellow-50" />
+            <div className=" aspect-square w-14  rounded-full bg-pure-greys-800 relative">
+            <label htmlFor="fileupload" className="w-full">    
+                <FiUploadCloud className="text-2xl text-yellow-50 absolute top-[30%] left-[30%]" />
+                 
+                 <input
+                  type='file'
+                  name='fileupload'
+                  onChange={changeHandler}
+                  className='w-0 h-0'
+                 />
+
+              </label>
+              
             </div>
+            <input {...getInputProps()} ref={inputRef} />
+           
             <p className="mt-2 max-w-[200px] text-center text-sm text-richblack-200">
               Drag and drop an image , or click to{" "}
               <span className="font-semibold text-yellow-50">Browse</span> a
