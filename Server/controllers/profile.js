@@ -1,6 +1,10 @@
 const User = require("../model/User");
 const Profile = require("../model/profile");
 const {uploadToCloud} = require("../utils/uploadToCloud");
+const Home = require("../model/Home");
+const Room = require("../model/Rooms");
+const RoomImg = require("../model/Section");
+const Category = require("../model/Category")
 
 exports.updateProfile = async(req, res) =>{
     try {
@@ -49,7 +53,35 @@ exports.deleteProfile = async(req, res) =>{
             message:'User not found',
         });
        } 
-     
+       
+       const home = user.homes;
+       
+       for(const homeId of home){
+          const homeDetails =  await Home.findById(homeId);
+          const categoryId = homeDetails.category;
+          await Category.findByIdAndUpdate(categoryId,{
+            $pull : {homes : homeDetails._id}
+          });
+
+          const rooms = homeDetails.houseRooms;
+         
+          for(const roomId of rooms){
+            const room = await Room.findById(roomId);
+            if(room){
+              const image = room.images;
+              
+              for(const imgId of image){
+                await RoomImg.findByIdAndDelete(imgId);
+              }
+
+            }
+            await Room.findByIdAndDelete(roomId);
+          }
+
+          await Home.findByIdAndDelete(homeId);
+
+       }
+ 
        await Profile.findByIdAndDelete({_id:user.additionalDetails});
        await User.findByIdAndDelete({_id:id});
        
