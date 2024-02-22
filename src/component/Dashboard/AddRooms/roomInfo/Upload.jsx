@@ -92,14 +92,10 @@ export default function Upload({
             )}
           </div>
         ) : (
-          <div
-            className="flex w-full flex-col items-center p-6"
-            {...getRootProps()}
-          >
-            <div className=" aspect-square w-14  rounded-full bg-pure-greys-800 relative">
-            <label htmlFor="fileupload" className="w-full">    
-                <FiUploadCloud className="text-2xl text-yellow-50 absolute top-[30%] left-[30%]" />
-                 
+           <div className="flex w-full flex-col items-center p-6" >
+               <div>             
+               <label className="z-20">    
+                <FiUploadCloud className="text-2xl text-yellow-50 " />
                  <input
                   type='file'
                   name='fileupload'
@@ -110,20 +106,22 @@ export default function Upload({
               </label>
               
             </div>
+            <div  {...getRootProps()} className="flex w-full flex-col items-center">
             <input {...getInputProps()} ref={inputRef} />
-           
-            <p className="mt-2 max-w-[200px] text-center text-sm text-richblack-200">
-              Drag and drop an image , or click to{" "}
+            
+              <p className="mt-2 max-w-[200px] text-center text-sm text-richblack-200">
+               Drag and drop an image , or click to{" "}
               <span className="font-semibold text-yellow-50">Browse</span> a
               file
-            </p>
-            <p className="mt-2 max-w-[200px] text-center text-sm text-richblack-200">
+              </p>
+              <p className="mt-2 max-w-[200px] text-center text-sm text-richblack-200">
               Accepted : jpeg, jpg, png
-            </p>
-            <ul className="mt-10 flex list-disc justify-between space-x-12 text-center  text-xs text-richblack-200">
+              </p>
+              <ul className="mt-10 flex list-disc justify-between space-x-12 text-center  text-xs text-richblack-200">
               <li>Aspect ratio 16:9</li>
               <li>Recommended size 1024x576</li>
-            </ul>
+              </ul>
+            </div>
           </div>
         )}
       </div>
