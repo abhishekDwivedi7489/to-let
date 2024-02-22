@@ -70,7 +70,7 @@ const FacilityForm = ({labelName,name,setValue,getValues,register,errors,placeho
             id={name}
             placeholder={placeholder}
             className='w-full form-style'
-            onKeyDown={handleKeyDown}
+            onKeyUp={handleKeyDown}
            />
            {
             errors[name] && (
