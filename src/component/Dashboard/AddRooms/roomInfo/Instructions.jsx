@@ -18,12 +18,14 @@ const Instructions = ({lable,name,errors,register,setValue,getValues,placeholder
     },[instructionList])
 
     const handleAddInstruction = (e) => {
+        e.preventDefault();
         e.stopPropagation();
+        
         if(requirement){
             setInstructionList([...instructionList, requirement]);
             setRequirement("");
         }
-        e.stopPropagation();
+       
     }
 
     const handleRemoveIns = (index) =>{
