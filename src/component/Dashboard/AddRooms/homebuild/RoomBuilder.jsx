@@ -169,7 +169,7 @@ const goToNext = () =>{
               tags={tags}
               setTags={setTags}
               errors = {errors}
-              placeholder = "Enter Facility and press Enter"
+              placeholder = "Enter Facility and press Space"
             />
 
             <div className="flex flex-col items-start space-y-2">
