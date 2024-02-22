@@ -42,13 +42,24 @@ export default function Upload({
     };
   };
 
-  const changeHandler = (e) => {
+ const changeHandler = (e) => {
     const file = e.target.files[0];
     if (file) {
-      previewFile(file);
-      setSelectedFile(file);
+      const image = new Image();
+      image.src = URL.createObjectURL(file);
+      image.onload = () => {
+        if (image.width <= 1280 && image.height <= 720) {
+          previewFile(file);
+          setSelectedFile(file);
+        } else {
+          // Alert the user that the image size is incorrect
+          alert("Please upload an image with dimensions less than 1280x720.");
+          // Optionally, you can clear the selected file
+           setSelectedFile(null);
+        }
+      };
     }
-  }
+  };
 
   useEffect(() => {
     register(name, { required: true });
