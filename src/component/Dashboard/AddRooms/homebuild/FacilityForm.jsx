@@ -22,7 +22,7 @@ const FacilityForm = ({labelName,name,setValue,getValues,register,errors,placeho
      
         const handleKeyDown = (event) =>{
           
-              if(event.key === "Enter" || event.key === "," ){
+              if(event.key === " " || event.key === "Enter" || event.key === "," ){
                 event.preventDefault();
                 console.log(event.target.value.trim())
                 const chipValue = event.target.value.trim();
