@@ -20,7 +20,7 @@ const RoomBuilder = () => {
   const [tags, setTags] = useState([])
   const dispatch = useDispatch();
 
-   console.log("first",home);
+
   const {
     register,
     setValue,
