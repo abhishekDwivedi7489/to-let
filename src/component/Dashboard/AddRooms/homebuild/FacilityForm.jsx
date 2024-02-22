@@ -4,7 +4,7 @@ import {RxCross2} from 'react-icons/rx'
 
 const FacilityForm = ({labelName,name,setValue,getValues,register,errors,placeholder,tags,setTags}) => {
     const {home, editHome} = useSelector((state)=>state.home)
-        // const [tags, setTags] = useState([])
+      
     
         //setValue(tags);
         useEffect(()=>{
@@ -22,17 +22,10 @@ const FacilityForm = ({labelName,name,setValue,getValues,register,errors,placeho
      
         const handleKeyDown = (event) =>{
           
-              if(event.key === " " || event.key === "Enter" || event.key === "," ){
+              if(event.key === " " || event.key === "," ){
                 event.preventDefault();
-                console.log(event.target.value.trim())
                 const chipValue = event.target.value.trim();
-               
                 setTags([...tags, chipValue])
-                // const valueChip =[...tags,chipValue]
-                 
-                // setTags(valueChip);
-                //setTags(...tags, chipValue);
-             
                 event.target.value=" "
               }
     
