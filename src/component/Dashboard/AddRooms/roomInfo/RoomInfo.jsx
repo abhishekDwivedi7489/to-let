@@ -54,7 +54,7 @@ const RoomInfo = () => {
             currentValue.city !== home.city ||
             currentValue.area !== home.area ||
             currentValue.address !== home.address ||
-            currentValue.category !== home.category ||
+            currentValue.category._id !== home.category._id ||
             currentValue.instructions.toString() !== home.instructions.toString() ||
             currentValue.thumbnail !== home.thumbnail){
               return true;
@@ -87,7 +87,7 @@ const RoomInfo = () => {
                if(currentValue.address !== home.address){
                 formData.append("address",data.address);
                }
-               if(currentValue.category !== home.category){
+               if(currentValue.category._id !== home.category._id){
                 formData.append("category",data.category);
                }
                if(currentValue.instructions !== home.instructions){
