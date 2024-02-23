@@ -21,7 +21,7 @@ exports.resetPasswordToken = async(req, res) =>{
                                         token:token,
                                         resetPasswordExpires:Date.now()+5*60*1000
                                      },{new:true});
-        const url = `http://localhost:3000/update-password/${token}`;
+        const url = `https://to-let.vercel.app/update-password/${token}`;
         await mailSender(email,"Password reset link", `Your Link for email verification is ${url}. Please click this url to reset your password.`);
         return res.status(200).json({
             success:true,
