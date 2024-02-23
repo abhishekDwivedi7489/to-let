@@ -60,7 +60,7 @@ exports.passwordReset = async(req, res) =>{
             }); 
         }
       
-        const hashPassword = await bcrypt.hash(password);
+        const hashPassword = await bcrypt.hash(password, 10);
         
         await User.findOneAndUpdate({token:token},
                                    {password:hashPassword},{new:true} );
