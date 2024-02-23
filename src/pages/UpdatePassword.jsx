@@ -53,7 +53,7 @@ const submitHamdler =(event) =>{
                             />
                             <span onClick={()=>setShowPassword( (prev)=>!prev)} className='absolute text-richblack-5 bottom-3 right-2'>
                               {
-                                showPassword ?<AiOutlineEyeInvisible/> :<AiOutlineEye/>
+                                showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />
                               }
                             </span>
                         </label>
@@ -74,7 +74,7 @@ const submitHamdler =(event) =>{
                             />
                             <span onClick={()=>setShowCnfPassword( (prev)=>!prev)} className='absolute text-richblack-5 bottom-3 right-2 cursor-pointer'>
                               {
-                                showCnfPassword ?<AiOutlineEyeInvisible/> :<AiOutlineEye/>
+                                showCnfPassword ?<AiOutlineEye/> :<AiOutlineEyeInvisible/>
                               }
                             </span>
                         </label>
