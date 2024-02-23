@@ -44,7 +44,7 @@ exports.passwordReset = async(req, res) =>{
                 message:"All field required "
             });
         }
-        console.log("first")
+        
         const userDetail = await User.findOne({token:token});
         if(!userDetail){
             return res.status(401).json({
@@ -52,21 +52,21 @@ exports.passwordReset = async(req, res) =>{
                 message:"Token invalid"
             })  
         }
-        console.log("first1")
+    
         if(userDetail.resetPasswordExpires<Date.now()){
             return res.status(401).json({
                 success:false,
                 message:"Token time expire, Please regenerate token",
             }); 
         }
-        console.log("first2")
+      
         const hashPassword = await bcrypt.hash(password);
-        console.log("first3", hashPassword)
+        
         await User.findOneAndUpdate({token:token},
                                    {password:hashPassword},{new:true} );
         let email = userDetail.email;
         let name = userDetail.firstName
-        console.log("first4")
+  
         await mailSender(email, "Password reset successfully",
                           passwordUpdated(email,name))
 
