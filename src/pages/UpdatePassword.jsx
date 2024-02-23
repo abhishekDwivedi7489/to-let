@@ -74,7 +74,7 @@ const submitHamdler =(event) =>{
                             />
                             <span onClick={()=>setShowCnfPassword( (prev)=>!prev)} className='absolute text-richblack-5 bottom-3 right-2 cursor-pointer'>
                               {
-                                showPassword ?<AiOutlineEyeInvisible/> :<AiOutlineEye/>
+                                showCnfPassword ?<AiOutlineEyeInvisible/> :<AiOutlineEye/>
                               }
                             </span>
                         </label>
