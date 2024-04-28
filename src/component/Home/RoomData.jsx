@@ -46,7 +46,7 @@ const RoomData = () => {
            data?.map((home) => (
             <section key={home._id} onClick={()=> navigate(`/home/${homeId}/${home._id}`)} className='cursor-pointer mx-auto lg:mx-0 room_data_box_shadow_width 
             border-[2px] border-[#B5B5B5] rounded-md p-1 overflow-hidden '>
-                <img src={home.images[0].image} alt='Not Found'  className='h-[100px] w-full mb-2  rounded-md'/>
+                <img src={home.images[0].image} alt='Not Found'  className='h-[130px] w-full mb-2  rounded-md'/>
                 <hr/>
                 <section className='flex justify-between p-2'>
                 <div className='flex flex-col gap-y-1 font-inter font-semibold text-base '>
