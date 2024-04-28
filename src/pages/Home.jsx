@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Loader from '../component/common/Loader'
-import { useDispatch, useSelector } from 'react-redux';
+
 import { useNavigate } from 'react-router-dom';
 import { categoryPagehome } from '../services/operation/homeApi';
-import { setCategoryRoom } from '../slices/homeSlice';
 import noImage from '../assets/NoConnection.PNG'
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
-  const dispatch = useDispatch();
+
   const navigate = useNavigate();
-  const {categoryRoom} = useSelector((state) => state.Room)
+ const [categoryRoom, setCategoryRoom] = useState(null)
  
 
   useEffect(() => {
@@ -18,10 +17,9 @@ const Home = () => {
         async function categoryPageDetails(){
           setLoading(true);
           const result = await categoryPagehome()
-         
           setLoading(false);
           if(result){
-            dispatch(setCategoryRoom(result))
+             setCategoryRoom(result)
           }
           
 
@@ -32,21 +30,24 @@ const Home = () => {
 
   },[]);
   
+  
   if(loading){
     return <Loader/>
   }
-  if(categoryRoom === null)
+ if(!categoryRoom)
   {
-     <section className=' h-[100vh] flex flex-col gap-y-7 items-center justify-center 
-                                   overflow-hidden absolute top-0 bottom-0 left-0 right-0 bg-richblack-5'>
+     return(
+      <section className=' h-[100vh] flex flex-col gap-y-7 items-center justify-center 
+      overflow-hidden bg-richblack-5'>
               <img 
                 src={noImage}
                 alt='No Connection Image'
                 
               />
-              <p className='font-edu font-semibold text-2xl'>Check Your Internet Connection</p>
+              <p className='font-edu font-semibold text-2xl'>Check Your Internet Connection</p> 
              
     </section>
+     )
   }
 
   else{
