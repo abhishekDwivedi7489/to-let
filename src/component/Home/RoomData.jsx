@@ -53,15 +53,11 @@ const RoomData = () => {
                   {/* <p>Room NO</p> */}
                   <p>Price</p>
                   <p>Type/Size</p>
-                  <p>Facility</p>
-                 
                 </div>
                 <div className='flex flex-col gap-y-1 font-inter font-semibold text-base'>
                   {/* <p>{home.roomNum}</p> */}
                   <p>{home.price}</p>
                   <p>{home.size}</p>
-                  <p>{home.facility}</p>
-                 
                 </div>
                 </section>
             </section>
