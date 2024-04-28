@@ -70,11 +70,11 @@ const Room = () => {
 
    
   return (
-    <section>
+    <section className='overflow-hidden  w-[100vw] mt-2 pb-[10rem]'>
     
        {
         room && (
-          <section className='h-[100vh] max-w-[1035px] w-[96%] mx-auto mt-10 '>
+          <section className='h-[100vh] max-w-[1035px] w-[96%] mx-auto'>
           <marquee className ="text-pink-200 ">NOTE :-  You need to contact the owner for booking</marquee>
           <section className='flex flex-wrap justify-between'>
           <div className='flex flex-col gap-y-6'>
