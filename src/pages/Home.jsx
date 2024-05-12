@@ -52,7 +52,7 @@ const Home = () => {
 
   else{
   return (
-    <main className='bg-[#f6f4f4e3] overflow-hidden w-[100vw] md:w-[11/12] pt-5 pb-[1rem]'>
+    <main className='overflow-hidden w-[100vw] md:w-[11/12] pt-5 pb-[1rem]'>
         {
           categoryRoom?.map((category, i) =>(
             <section key={i}  className=' mx-auto '>
