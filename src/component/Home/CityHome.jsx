@@ -131,7 +131,7 @@ if(loading){
               <form onSubmit={formSubmitHadler} className='flex justify-between'>
                     
                     <div className='flex flex-col gap-2 mt-1'>
-                    <label htmlFor='area' className='text-sm font-semibold mb-3'>Select Area</label>
+                    <label htmlFor='area' className='text-sm font-semibold'>Select Area</label>
                      <div className='flex gap-3'>
                      <input
                         name='area'
