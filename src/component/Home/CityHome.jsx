@@ -130,7 +130,7 @@ if(loading){
               <section>
               <form onSubmit={formSubmitHadler} className='flex justify-between'>
                     
-                    <div>
+                    <div className='flex flex-col gap-2 mt-1'>
                     <label htmlFor='area' className='text-sm font-semibold mb-3'>Select Area</label>
                      <div className='flex gap-3'>
                      <input
@@ -140,7 +140,7 @@ if(loading){
                         onChange={changeHandler}
                         onClick={() => setOpenCate(true)}
                         placeholder='Area Name'
-                        className='text-black text-sm p-1 rounded-sm outline-none font-semibold'
+                        className='text-black text-sm p-2 rounded-sm outline-none font-semibold'
                      />
                     <button className='text-sm font-semibold filter-button'>Search</button>
                     </div>
@@ -149,12 +149,12 @@ if(loading){
                      
                </form>
                { openCate &&
-               <section className='flex flex-col gap-1 bg-richblack-100 w-[60%] overflow-auto p-1 h-[30%] mt-1 rounded-sm shadow'>
+               <section className='flex flex-col gap-2 bg-richblack-100 w-[80%] overflow-auto p-1 h-[40%] mt-1 rounded-md shadow'>
                    {
                    homeDataFil?.length > 0 && (
                        homeDataFil?.map((home) => (
                          <section key={home._id} onClick={() => clickHandler(home.area)} 
-                         className='cursor-pointer text-sm font-semibold bg-richblack-200 p-1 rounded-lg'>
+                         className='cursor-pointer text-sm font-semibold bg-white p-1 rounded-sm'>
                             {home.area}
                          </section>
                        ))
