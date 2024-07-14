@@ -130,7 +130,7 @@ html, body{
 .room_data_box_shadow_width{
   overflow: hidden;
   box-shadow: 5px 7px 6px 0px #0808083f;
-  width: 313px;
+  width: 316px;
   transition: all 0.2s;
 }
 
